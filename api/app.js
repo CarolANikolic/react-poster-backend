@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
 
-const { getStoredPosts, storePosts } = require('./data/posts');
+const { getStoredPosts, storePosts } = require('../data/posts');
 
 const app = express();
 
@@ -40,6 +40,4 @@ app.post('/posts', async (req, res) => {
     res.status(201).json({ message: 'Stored new post.', post: newPost });
 });
 
-app.listen(8080, () => {
-    console.log("Server running on port 8080.")
-});
+export default app
